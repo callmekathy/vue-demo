@@ -1,0 +1,318 @@
+@import "~sass-rem";
+// $rem-baseline: 10px;
+$rem-baseline: 64px;
+
+html {
+    height: 100%;
+  @include rem-baseline; // Default zoom to 100%
+}
+// 字体颜色
+$font-white-color: #fff;
+$font-title-color: #222;
+$font-assist-color: #888;
+$font-link-color: #00b38a;
+$font-invalid-color: #c3cbd6;
+$font-white-color: #fff;
+// 排名上升下降
+$font-rank-down-color: #00b38a;
+$font-rank-up-color: #ff5759;
+$font-rank-equal-color: #aaaaaa;
+// ~边框
+$border-color: #dddddd;
+// 加重颜色
+$weight-color: #ffae00;
+// 清除浮动
+// 省略号
+@mixin dot($width: 100px) {
+    width: $width;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+@mixin clearfix {
+    display: block;
+    zoom: 1;
+    &:after {
+      content: " ";
+      display: block;
+      font-size: 0;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+  @mixin medium-icon{
+    display: block;
+    width: rem(90px);
+    height: rem(90px);
+    border: 1px solid $border-color;
+    border-radius: 22%;
+}
+//  ~数据列表
+
+.cm-data-list{
+    background: $font-white-color;
+    li:link{
+        background-color: rgba(0,0,0,.05);
+    }
+    li:visited{
+        background-color: #fff;
+    }
+    li:hover{
+        background-color: #fff;
+    }
+    li:active{
+        background-color: rgba(0,0,0,.05);
+    }
+    li{
+        @include clearfix;
+        padding-left: rem(15px);
+        padding-right: rem(15px);
+        position: relative;
+        height: rem(130px);
+        &.data-item{
+            // .index{
+            //     // position: absolute;
+            //     float: left;
+            //     width: rem(70px);
+            //     line-height: rem(130px);
+            //     font-size: rem(22px);
+            //     color: $font-title-color;
+            //     text-align: center;
+            //     &.active{
+            //         background: $weight-color;
+            //     }
+            // }
+            // 处理前三项带黄色背景的
+            .index-active{
+                // position: absolute;
+                float: left;
+                width: rem(28px);
+                height: rem(28px);
+                background: $weight-color;
+                font-size: rem(22px);
+                text-align: center;
+                line-height: rem(34px);
+                color: $font-white-color;
+                margin-top: rem(46px);
+                margin-bottom: rem(46px);
+                margin-left: rem(16px);
+            }
+            .app-info-wrap{
+                @include clearfix;
+                display: block;
+                // border-bottom: rem(1px solid $border-color);
+                // margin-left: rem(70px);
+                .icon{
+                    display: block;
+                    float: left;
+                    margin-top: rem(18px);
+                    margin-bottom: rem(18px);
+                    img{
+                        @include medium-icon;
+                    }
+                }
+                .app-info{
+                    float: left;
+                    margin-top: rem(18px);
+                    margin-left: rem(26px);
+                    // width: rem(280px);
+                    width: rem(250px);
+                    .app-name{
+                        @include dot(rem(270px));
+                        display: block;
+                        font-size: rem(28px);
+                        color: $font-title-color;
+                        margin-top: rem(4px);
+                    }
+                    .app-company{
+                        @include dot(rem(280px));
+                        font-size: rem(22px);
+                        margin-top: rem(10px);
+                        color: $font-assist-color;
+                    }
+                    // 带有排名的需要加上这个类
+                    // &.rank{
+                    //     width: rem(300px);
+                    // }
+                    &.no-rank{
+                        width: rem(390px);
+                        .app-name{
+                            @include dot(rem(370px));
+                        }
+                        .app-company{
+                            @include dot(rem(370px));
+                        }
+                    }
+                }
+                .rank-wrap{
+                    float: right;
+                    &.rank-up{
+                        color: $font-rank-up-color;
+                    }
+                    &.rank-down{
+                        color: $font-rank-down-color;
+                    }
+                    &.rank-new{
+                        color: $weight-color;
+                        .num{
+                            font-size: rem(20px);
+                        }
+                    }
+                    &.rank-equal{
+                        color: $font-rank-equal-color;
+                    }
+                    .arrow{
+                        display: block;
+                        float: left;
+                        font-size: rem(14px);
+                        line-height: rem(130px);
+                    }
+                    .num{
+                        display: block;
+                        float: left;
+                        font-size: rem(22px);
+                        line-height: rem(130px);
+                    }
+                }
+                .chat{
+                    float: right;
+                    display: block;
+                    width: rem(50px);
+                    height: rem(100px);
+                    padding-top: rem(40px);
+                    font-size: rem(26px);
+                    padding-left: rem(20px);
+                }
+            }
+            @media screen and (min-width:540px){
+                .app-info-wrap{
+                    .app-info{
+                        width: rem(500px);
+                        .app-name{
+                            @include dot(rem(500px));
+                        }
+                        .app-company{
+                            @include dot(rem(500px));
+                        }
+                    }
+                }
+            }
+            .cancelFocus{
+                display: block;
+                float: right;
+                font-size: rem(40px);
+                color: $font-invalid-color;
+                margin-top: rem(30px);
+            }
+        }
+        &.loading-item{
+            background: #fff;
+            padding-top: rem(12px);
+            // padding-bottom: rem(20px);
+            .animated-background{
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+                animation-name: placeHolderShimmer;
+                animation-timing-function: linear;
+                background: #f6f7f8;
+                background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+                background-size: 800px 104px;
+                height: 100%;
+                position: relative;
+                .index{
+                    position: absolute;
+                    width: rem(70px);
+                    font-size: rem(22px);
+                    color: $font-title-color;
+                    text-align: center;
+                    z-index: 1004;
+                    line-height: rem(82px);
+                    &.active{
+                        background: $weight-color;
+                    }
+                }
+                @media screen and (min-width:540px){
+                    .shade-top{
+                        width: rem(500px)!important;
+                    }
+                    .shade-middle{
+                        width: rem(700px)!important;
+                    }
+                    .shade-bottom{
+                        width: rem(700px)!important;
+                    }
+                    .shade-txt-top{
+                        width: rem(300px)!important;
+                    }
+                    .shade-txt-bottom{
+                        width: rem(188px)!important;
+                    }
+                }
+                .shade{
+                    position:absolute;
+                    background:#fff;
+                    // &.shade-icon-left{
+                    //     width: rem(70px);
+                    //     height: 100%;
+                    // }
+                    &.shade-icon-right{
+                        width: rem(26px);
+                        height: 100%;
+                        top: 0;
+                        left: rem(160px);
+                    }
+                    &.shade-top{
+                        width: rem(414px);
+                        height: rem(6px);
+                        top: 0;
+                        left: rem(166px);
+                    }
+                    &.shade-middle{
+                        width: rem(414px);
+                        height: rem(10px);
+                        top: rem(38px);
+                        left: rem(166px);
+                    }
+                    &.shade-bottom{
+                        width: rem(414px);
+                        height: rem(6px);
+                        bottom: 0;
+                        left: rem(166px);
+                    }
+                    &.shade-txt-top{
+                        width: rem(200px);
+                        height: rem(38px);
+                        top: 0;
+                        right: 0;
+                    }
+                    &.shade-txt-bottom{
+                        width: rem(88px);
+                        height: rem(42px);
+                        top: rem(42px);
+                        right: 0;
+                    }
+                }
+                .icon-shade{
+                    position: absolute;
+                    top: 0;
+                    left: rem(70px);
+                    width: rem(90px);
+                    height: rem(90px);
+                    z-index: 1003;
+                }
+            }
+        }
+    }
+}
+
+/*渐变动画  */
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}

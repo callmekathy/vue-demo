@@ -1,0 +1,106 @@
+// pxTorem计算
+
+@function pxTopxTorem($px){//$px为需要转换的字号
+    @return $px*(1/100)*1pxTorem;
+}
+$font-title-color: #222;
+// 加重颜色
+$weight-color: #ffae00;
+.loading-item{
+    background: #fff;
+    padding-top: pxTorem(20px);
+    padding-bottom: pxTorem(20px);
+    .animated-background{
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeHolderShimmer;
+        animation-timing-function: linear;
+        background: #f6f7f8;
+        background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+        background-size: 800px 104px;
+        height: 100%;
+        position: relative;
+        .index{
+            position: absolute;
+            width: pxTorem(70px);
+            font-size: pxTorem(22px);
+            color: $font-title-color;
+            text-align: center;
+            z-index: 1004;
+            line-height: pxTorem(82px);
+            &.active{
+                background: $weight-color;
+            }
+        }
+        @media screen and (min-width:540px){
+            .shade-top{
+                width: pxTorem(500px)!important;
+            }
+            .shade-middle{
+                width: pxTorem(700px)!important;
+            }
+            .shade-bottom{
+                width: pxTorem(700px)!important;
+            }
+            .shade-txt-top{
+                width: pxTorem(300px)!important;
+            }
+            .shade-txt-bottom{
+                width: pxTorem(188px)!important;
+            }
+        }
+        .shade{
+            position:absolute;
+            background:#fff;
+            &.shade-icon-left{
+                width: pxTorem(70px);
+                height: 100%;
+            }
+            &.shade-icon-right{
+                width: pxTorem(26px);
+                height: 100%;
+                top: 0;
+                left: pxTorem(160px);
+            }
+            &.shade-top{
+                width: pxTorem(414px);
+                height: pxTorem(6px);
+                top: 0;
+                left: pxTorem(166px);
+            }
+            &.shade-middle{
+                width: pxTorem(414px);
+                height: pxTorem(10px);
+                top: pxTorem(38px);
+                left: pxTorem(166px);
+            }
+            &.shade-bottom{
+                width: pxTorem(414px);
+                height: pxTorem(6px);
+                bottom: 0;
+                left: pxTorem(166px);
+            }
+            &.shade-txt-top{
+                width: pxTorem(200px);
+                height: pxTorem(38px);
+                top: 0;
+                right: 0;
+            }
+            &.shade-txt-bottom{
+                width: pxTorem(88px);
+                height: pxTorem(42px);
+                top: pxTorem(42px);
+                right: 0;
+            }
+        }
+        .icon-shade{
+            position: absolute;
+            top: 0;
+            left: pxTorem(70px);
+            width: pxTorem(90px);
+            height: pxTorem(90px);
+            z-index: 1003;
+        }
+    }
+}

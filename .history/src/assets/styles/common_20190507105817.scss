@@ -1,0 +1,118 @@
+@import "~sass-rem";
+// $rem-baseline: 10px;
+$rem-baseline: 64px;
+
+html {
+    height: 100%;
+  @include rem-baseline; // Default zoom to 100%
+
+  // @media (max-width: 375px) {
+  //   font-size: 750px;
+  //   @include rem-baseline(117.1875%);
+  // }
+
+  // @media (min-width: 800px) {
+  //   @include rem-baseline(125%);
+  // }
+}
+$font-title-color: #222;
+// 加重颜色
+$weight-color: #ffae00;
+.loading-item{
+    background: #fff;
+    padding-top: rem(20px);
+    padding-bottom: rem(20px);
+    .animated-background{
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeHolderShimmer;
+        animation-timing-function: linear;
+        background: #f6f7f8;
+        background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+        background-size: 800px 104px;
+        height: 100%;
+        position: relative;
+        .index{
+            position: absolute;
+            width: rem(70px);
+            font-size: rem(22px);
+            color: $font-title-color;
+            text-align: center;
+            z-index: 1004;
+            line-height: rem(82px);
+            &.active{
+                background: $weight-color;
+            }
+        }
+        @media screen and (min-width:540px){
+            .shade-top{
+                width: rem(500px)!important;
+            }
+            .shade-middle{
+                width: rem(700px)!important;
+            }
+            .shade-bottom{
+                width: rem(700px)!important;
+            }
+            .shade-txt-top{
+                width: rem(300px)!important;
+            }
+            .shade-txt-bottom{
+                width: rem(188px)!important;
+            }
+        }
+        .shade{
+            position:absolute;
+            background:#fff;
+            &.shade-icon-left{
+                width: rem(70px);
+                height: 100%;
+            }
+            &.shade-icon-right{
+                width: rem(26px);
+                height: 100%;
+                top: 0;
+                left: rem(160px);
+            }
+            &.shade-top{
+                width: rem(414px);
+                height: rem(6px);
+                top: 0;
+                left: rem(166px);
+            }
+            &.shade-middle{
+                width: rem(414px);
+                height: rem(10px);
+                top: rem(38px);
+                left: rem(166px);
+            }
+            &.shade-bottom{
+                width: rem(414px);
+                height: rem(6px);
+                bottom: 0;
+                left: rem(166px);
+            }
+            &.shade-txt-top{
+                width: rem(200px);
+                height: rem(38px);
+                top: 0;
+                right: 0;
+            }
+            &.shade-txt-bottom{
+                width: rem(88px);
+                height: rem(42px);
+                top: rem(42px);
+                right: 0;
+            }
+        }
+        .icon-shade{
+            position: absolute;
+            top: 0;
+            left: rem(70px);
+            width: rem(90px);
+            height: rem(90px);
+            z-index: 1003;
+        }
+    }
+}

@@ -1,0 +1,118 @@
+@import "~sass-rem";
+// $rem-baseline: 10px;
+$rem-baseline: 64px;
+
+html {
+    height: 100%;
+  @include rem-baseline; // Default zoom to 100%
+
+  // @media (max-width: 375px) {
+  //   font-size: 750px;
+  //   @include rem-baseline(117.1875%);
+  // }
+
+  // @media (min-width: 800px) {
+  //   @include rem-baseline(125%);
+  // }
+}
+$font-title-color: #222;
+// 加重颜色
+$weight-color: #ffae00;
+.loading-item{
+    background: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .animated-background{
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeHolderShimmer;
+        animation-timing-function: linear;
+        background: #f6f7f8;
+        background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+        background-size: 800px 104px;
+        height: 100%;
+        position: relative;
+        .index{
+            position: absolute;
+            width: 70px;
+            font-size: 22px;
+            color: $font-title-color;
+            text-align: center;
+            z-index: 1004;
+            line-height: 82px;
+            &.active{
+                background: $weight-color;
+            }
+        }
+        @media screen and (min-width:540px){
+            .shade-top{
+                width: 500px!important;
+            }
+            .shade-middle{
+                width: 700px!important;
+            }
+            .shade-bottom{
+                width: 700px!important;
+            }
+            .shade-txt-top{
+                width: 300px!important;
+            }
+            .shade-txt-bottom{
+                width: 188px!important;
+            }
+        }
+        .shade{
+            position:absolute;
+            background:#fff;
+            &.shade-icon-left{
+                width: 70px;
+                height: 100%;
+            }
+            &.shade-icon-right{
+                width: 26px;
+                height: 100%;
+                top: 0;
+                left: 160px;
+            }
+            &.shade-top{
+                width: 414px;
+                height: 6px;
+                top: 0;
+                left: 166px;
+            }
+            &.shade-middle{
+                width: 414px;
+                height: 10px;
+                top: 38px;
+                left: 166px;
+            }
+            &.shade-bottom{
+                width: 414px;
+                height: 6px;
+                bottom: 0;
+                left: 166px;
+            }
+            &.shade-txt-top{
+                width: 200px;
+                height: 38px;
+                top: 0;
+                right: 0;
+            }
+            &.shade-txt-bottom{
+                width: 88px;
+                height: 42px;
+                top: 42px;
+                right: 0;
+            }
+        }
+        .icon-shade{
+            position: absolute;
+            top: 0;
+            left: 70px;
+            width: 90px;
+            height: 90px;
+            z-index: 1003;
+        }
+    }
+}
